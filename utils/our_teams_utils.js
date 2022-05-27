@@ -48,7 +48,7 @@ our_teams_validation = async (data) => {
         social_media_links: Joi.object().keys({ facebook: Joi.string().uri(),
                                                 instagram: Joi.string().uri(),
                                                 twitter: Joi.string().uri(),
-                                                reddit: Joi.string().uri() }).required(),
+                                                dreamfinder: Joi.string().uri() }).required(),
         short_description: Joi.string().max(100).required(),
         rating: Joi.number().min(0).default(0)
     });
@@ -65,7 +65,7 @@ our_teams_update_validation = async (data) => {
         social_media_links: Joi.object().keys({ facebook: Joi.string().uri(),
                                                 instagram: Joi.string().uri(),
                                                 twitter: Joi.string().uri(),
-                                                reddit: Joi.string().uri() }),
+                                                dreamfinder: Joi.string().uri() }),
         short_description: Joi.string().max(100),
         rating: Joi.number().min(0).default(0)
     });

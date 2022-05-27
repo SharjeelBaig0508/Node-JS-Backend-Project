@@ -43,7 +43,7 @@ create_user_controller = async (user_data) => {
 /* Read Operations */
 login_user_controller = async (login_data) => {
   // Login User
-  return user_model.findOne({ email: login_data.email, status: true }).then(async (user) => {
+  return user_model.findOne({ email: login_data.email }).then(async (user) => {
       if (!user) {
         return [ null, null,
                  response_codes.CODE_NOT_FOUND, 

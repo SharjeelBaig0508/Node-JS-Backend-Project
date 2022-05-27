@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('node-js-backend-project:server');
+var debug = require('debug')('dream-finder:server');
 var http = require('http');
 const dotenv = require('dotenv');
 dotenv.config()

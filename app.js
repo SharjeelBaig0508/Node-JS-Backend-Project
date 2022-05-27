@@ -20,22 +20,12 @@ var app = express();
 var User = require('./model/user_model');
 
 mongoose.connect(mongodb_url, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+  useNewUrlParser: "true",
+  useUnifiedTopology: "true",
 });
 
 mongoose.connection.on("connected", () => {
   console.log(`Connected to ${mongodb_url.split("@")[1]}`);
-});
-mongoose.connection.on("reconnected", () => {
-  console.log(`Reconnected to ${mongodb_url.split("@")[1]}`);
-});
-mongoose.connection.on("error", (error) => {
-  console.log(`Error occured while connecting to ${mongodb_url.split("@")[1]}`, error);
-  mongoose.disconnect();
-});
-mongoose.connection.on("disconnected", () => {
-  console.log(`Disconnected from ${mongodb_url.split("@")[1]}`);
 });
 
 app.use(cors());
@@ -61,6 +51,7 @@ app.use(BASE_URL + '/projects', require('./routes/project'));
 app.use(BASE_URL + '/certificates', require('./routes/certificate'));
 app.use(BASE_URL + '/firebase', require('./routes/firebase'));
 app.use(BASE_URL + "/contact-us", require('./routes/contact_us'));
+app.use(BASE_URL + "/banner", require('./routes/banner'));
 
 
 // 400 error handler
